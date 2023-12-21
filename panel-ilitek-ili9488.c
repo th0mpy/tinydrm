@@ -11,15 +11,22 @@
  * published by the Free Software Foundation.
  */
 
-#include <drm/drmP.h>
-#include <drm/drm_panel.h>
-
-#include <linux/module.h>
+#include <linux/backlight.h>
 #include <linux/delay.h>
 #include <linux/gpio/consumer.h>
-#include <linux/pinctrl/consumer.h>
-#include <linux/regulator/consumer.h>
+#include <linux/module.h>
+#include <linux/property.h>
 #include <linux/spi/spi.h>
+
+#include <drm/drm_atomic_helper.h>
+#include <drm/drm_drv.h>
+#include <drm/drm_fb_helper.h>
+#include <drm/drm_gem_atomic_helper.h>
+#include <drm/drm_gem_dma_helper.h>
+#include <drm/drm_managed.h>
+#include <drm/drm_mipi_dbi.h>
+#include <drm/drm_modeset_helper.h>
+#include <video/mipi_display.h>
 
 struct ili9488 {
 	struct spi_device	*spi;
