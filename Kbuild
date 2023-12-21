@@ -7,3 +7,4 @@ ccflags-y := -I$(src)/include
 
 # Displays
 obj-m += st7796.o
+obj-m += panel-ilitek-ili9488.o
